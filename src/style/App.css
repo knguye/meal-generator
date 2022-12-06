@@ -1,0 +1,633 @@
+:root {
+  /* S3
+  --main-bg-color: #274c77;
+  --foreground-color: #c8d3d5;
+  --section-color: #fcfafa;
+  --font-color: #12253b;
+  --header-color: #274c77;
+  */
+
+  /* Sliders */
+
+  --green: #91C499;
+  --blue: #20A4F3;
+  --red: #CE2F2F;
+
+  --main-bg-color: #274c77;
+  --foreground-color: #c8d3d5;
+  --section-color: #fcfafa;
+  --font-color: #12253b;
+  --header-color: #274c77;
+
+  --header-font: 'Montserrat', sans-serif; 
+  --paragraph-font: 'Lato', sans-serif;
+}
+
+body{
+  color: var(--font-color);
+  background-color: var(--main-bg-color);
+  contain: paint;
+  margin: 0;
+  font-family: sans-serif;
+  font-family: var(--paragraph-font);
+}
+
+#app {
+  border: none #AAA 1px;
+  border-style: none solid none;
+}
+
+body > div > div {
+  width: 70%;
+  position: relative;
+  left: 15%;
+  padding-top: 1%;
+  margin-top: -1%;
+  margin-bottom: -2%;
+  padding-left: 1%;
+  padding-bottom: 5%;
+  transform: translateX(-1%);
+  background-color: var(--foreground-color);
+}
+
+@media screen and (max-width: 1124px) {
+  body > div > div {
+    width: 100%;
+    left: 0;
+  }
+
+  #macro-values > div > div > div{
+    position: relative;
+     /* TODO: Needs to be connected to the above "left" value to offset it */
+  }
+
+  @media (max-width: 760px) and (min-width: 480px){
+    #macro-values > div {
+      left: 0;
+      width: auto;
+    }
+
+    #macro-values {
+      align-items: center;
+    }
+
+    #macro-values > div > div > div{
+      position: relative;
+      
+    }
+  }
+
+  @media (max-width: 480px){
+    #macro-values > div {
+      left: 0;
+      width: auto;
+    }
+
+    #macro-values {
+      align-items: center;
+    }
+
+    #macro-values > div > div > div{
+      position: relative;
+    }
+  }  
+}
+
+
+/* Base classes */
+h1 {
+  font-size: 2em;
+
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+ul .bulleted{
+  list-style:circle;
+}
+
+/* Headers */
+header {
+  width: 100%;
+  text-align: center;
+  font-family: sans-serif;
+  font-family: var(--header-font);
+  margin-top: 5%;
+}
+
+.main-header {
+  position: absolute;
+  color: white;
+  background-color: var(--header-color);
+  min-height: 50px;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  margin-top: 0;
+}
+
+header h1 {
+  font-family: var(--header-font);
+}
+
+/* App Body */
+
+#app {
+  padding-top: 5%;
+}
+
+@media screen and (max-width: 1124px) {
+  #app {
+    padding-top: 25%;
+  }
+
+  @media (min-width: 760px){
+    #app {
+      padding-top: 10%;
+    }
+  } 
+}
+
+
+/* Macro Calculator General */
+
+#macro-calculator {
+  display: flex;
+  flex-direction: column;
+  font-size: 1em;
+}
+
+#macro-calculator div {
+  padding-bottom: 1%;
+}
+
+#instructions {
+  font-size: 1.5em;
+}
+
+/* Sections */
+
+.section {
+  width: 80%;
+  position: relative;
+  left: 10%;
+  padding: 1% 1% 1%;
+  margin-top: 1%;
+  margin-bottom: 2.5%;
+  transform: translateX(-1%);
+  border-radius: 5px;
+  background-color: var(--section-color);
+}
+
+.transparent {
+  background-color: var(--foreground-color);
+}
+
+
+@media screen and (max-width: 1124px){
+  .section {
+    
+  }
+}
+
+.shadowed {
+  box-shadow: 10px 10px 8px #888888;
+}
+
+.bordered {
+  border: 1px solid #777777;
+}
+
+.invalid {
+  color: red;
+}
+
+/* Macro Section START */
+
+#macro-values {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 2.5%;
+}
+
+#macro-results{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 1.25em;
+}
+
+@media screen and (max-width: 760px){
+  #macro-values {
+    flex-direction: column;
+  }
+
+  #macro-results {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Macro Section END*/
+
+/* FORMS */
+
+input {
+  width: 10em;
+  height: 1em;
+  font-size: 1rem;
+  margin-bottom: 2.5%;
+  text-align: center;
+}
+
+select {
+  height: 2em;
+  font-size: 1.5rem;
+  margin-bottom: 1%;
+}
+
+legend {
+  margin-top: 0;
+  margin-bottom: 2.5%;
+  text-align: center;
+}
+
+/* BMI Values Section */
+
+.form-container {
+  display:flex;
+  flex-direction: row;
+  padding-bottom: 1%;
+  padding-top: 1%;
+  align-items: center;
+}
+
+.top {
+  justify-content: space-around;
+}
+
+.bottom {
+  justify-content: space-around;
+}
+
+.slide-container{
+  margin-left: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.large-output {
+  flex-grow: 1;
+  text-align: center;
+  position: relative;
+}
+
+.large-text {
+  font-size: 8em;
+  margin-top: 1%;
+  margin-bottom: 0;
+}
+
+.col-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  justify-content: space-around;
+  margin-right: 10%;
+}
+
+.macro-text {
+  font-size: 2em;
+}
+
+#sex-buttons{
+  display: flex;
+  flex-direction: row;
+}
+
+
+@media screen and (max-width: 1720px){
+  .form-container {
+    display:flex;
+    flex-wrap: wrap;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .large-text {
+    margin-top: 1%;
+    margin-bottom: 0;
+  }
+
+  .col-container {
+    margin-right: 0;
+  }
+}
+
+
+@media screen and (max-width: 760px) {
+
+  .form-container {
+    display:flex;
+    flex-direction: column;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-container > * {
+    margin-bottom: 5%;
+  }
+
+  .top {
+    padding-top: 10%;
+  }
+  
+  .bottom {
+    margin-top: 0;
+    padding-bottom: 10%
+  }
+
+  .large-output {
+    flex-grow: 1;
+    margin-left: 0;
+  }
+  
+  .large-text {
+    margin-top: 1%;
+    margin-bottom: 0;
+  }
+
+  .col-container {
+    margin-right: 0;
+  }
+  
+  .macro-text {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .large-text{
+    font-size: 5em;
+  }
+
+  .slide-container{
+    margin-left: 0;
+    margin-top: 5%;
+  }
+
+  #sex-buttons{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+/* BMI Values Section END */
+
+#generate-meals-button{
+  display:block;
+  border: none;
+  border-radius: 5px;
+  padding: 1em;
+  margin: auto;
+  font-size: 2em;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+#total-details {
+  position: relative;
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+@media screen and (max-width: 760px) {
+  #generate-meals-button{
+    display:block;
+    border: none;
+    border-radius: 10%;
+    padding: 1em;
+    left: 50%;
+    margin: auto;
+    font-size: 1.5em;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+}
+
+/* Meal Preview Panels & Meal Generator */
+#meal-generator {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2%;
+  vertical-align: middle;
+  justify-content: space-around;
+}
+
+.meal-panel {
+  position: relative;
+  max-width: 100%;
+  min-height: 25vh;
+  background-color: #EEE;
+  padding: 1%;
+  margin: 1%;
+  flex: 1 0 28%;
+}
+
+.meal-panel img {
+  position: relative;
+  opacity: 0.2;
+  min-width: 50%;
+  min-height: 50%;
+  border-radius: 5px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+
+.meal-panel p {
+  font-size: 0.8em;
+}
+
+.meal-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+@media screen and (max-width: 760px) {
+  #meal-generator {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .meal-panel {
+    position: relative;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: #EEE;
+    padding: 1%;
+    margin: 1%;
+  }
+
+  .meal-panel img {
+    position: relative;
+    opacity: 0.25;
+    min-width: 50%;
+    min-height: 50%;
+    border-radius: 5px;
+    top: 0%;
+    transform: translate(-50%, -0%);
+    left: 50%;
+  }
+  
+  .meal-panel p {
+    font-size: 0.8em;
+  }
+
+  .meal-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  
+}
+
+@media screen and (max-width: 480px){
+  .meal-panel {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin: 2% 0 2%;
+    border-radius: 5px;
+  }
+
+  .meal-panel {
+    font-size: 0.9em;
+  }
+}
+
+/* Meal Preview Panels END */
+
+/* Meal Details (on click) */
+
+.meal-details {
+  min-width: 100%;
+
+}
+
+.meal-details .container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: inherit;
+  width: inherit;
+  padding: 2.5%;
+  border-radius: 5px;
+  list-style:none;
+  background-color: var(--section-color);
+}
+
+.meal-details .container > * {
+  padding: 2.5%;
+
+}
+
+#cancel {
+  min-height: 2.5vh;
+  min-width: 2.5vh;
+  font-size: 2.5vh;
+  border: none;
+  color: black;
+  background: none;
+  padding: .5vh;
+  margin: .5vh;
+  cursor: pointer;
+}
+
+.meal-details #header {
+  display: flex;
+  justify-content: space-between;
+  margin: inherit 2.5% 0 2.5%;
+  padding-bottom: 2%;
+  font-size: 2em;
+  z-index: 10;
+}
+
+.meal-details .container img {
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 960px){
+  .meal-details .container {
+    flex-direction: column;
+  }
+
+  .meal-details #header {
+    font-size: 1.5em;
+  }
+}
+
+/* Meal Details End */
+
+/* Total Meal Macros */
+
+#total-details {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+#total-details p {
+  font-size: 5em;
+}
+
+.green {
+  color: var(--green);
+}
+
+.blue {
+  color: var(--blue);
+}
+
+.red {
+  color: var(--red);
+}
+
+@media screen and (max-width: 1400px){
+  #total-details p {
+    font-size: 2.75em;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #total-details p {
+    font-size: 3em;
+  }
+
+  #total-details {
+    flex-direction: column;
+  }
+
+  #total-details > * {
+    padding: 2.5% 0 2.5%;
+  }
+}
+
+/* Total Meal Macros END */

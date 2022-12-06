@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css?family=Inter:400'");
+$font: "Inter", sans-serif;
+$white: #fff;
+$green: #007e90;
+$male: #5d66e6;
+$female: #d65b94;
+$charcoal: #202020;
+@import "../fontawesome/scss/fontawesome.scss";
+@import "../fontawesome/scss/solid.scss";
+@import "../fontawesome/scss/brands.scss";
+
+  h1 {
+    font-family: $font;
+    color: $white;
+  }
+
+  input[type="radio"] {
+    display: none;
+    
+    &:checked {
+      + .box {
+        background-color: $green;
+        span {
+          color: white;
+          transform: translateY(50px);
+          &:before {
+            transform: translateY(0px);
+            opacity: 1;
+          }
+
+          @media screen and (max-width: 480px) {
+            transform: translateY(25px);
+          }
+        }
+      }
+
+      + .male {
+        background-color: $male;
+      }
+
+      +.female{
+        background-color: $female;
+      }
+    }
+  }
+  .box {
+    width: 150px;
+    height: 150px;
+    background-color: $charcoal;
+    transition: all 250ms ease;
+    will-change: transition;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    font-family: $font;
+    font-weight: 900;
+    &:active {
+      transform: translateY(10px);
+    }
+    span {
+      position: absolute;
+      transform: translate(0, 30px);
+      left: 0;
+      right: 0;
+      transition: all 300ms ease;
+      font-size: 1.25em;
+      user-select: none;
+      color: $white;
+      &:before {
+        font-size: 1em;
+        font-family: FontAwesome;
+        display: block;
+        transform: translateY(-40px);
+        opacity: 0;
+        transition: all 300ms ease-in-out;
+        font-weight: normal;
+        color: white;
+      }
+    }
+    @media screen and (max-width:480px) {
+      width: 100px;
+      height: 100px;
+
+      &:active {
+        transform: translateY(10px);
+      }
+
+      span {
+        font-size: 1em;
+        transform: translateY(20px);
+        &:before {
+          transform: translateY(-5px);
+        }
+      }
+    }
+    
+  }
+
+  // Individual Button Styling
+  .front-end {
+    span {
+      &:before {
+        content: "\f121";
+      }
+    }
+  }
+
+  .back-end {
+    span {
+      &:before {
+        content: "\f0f4";
+      }
+    }
+  }
+
+  .male {
+    span {
+      &:before {
+        content: "\f222"
+      }
+    }
+  }
+
+  .female {
+    span {
+      &:before {
+        content: "\f221"
+      }
+    }
+  }
+
