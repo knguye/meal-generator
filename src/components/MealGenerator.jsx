@@ -13,7 +13,8 @@ import {
 from '../scripts/utils';
 
 import {
-    LargeOutputResult
+    LargeOutputResult,
+    Button
 } from './Utils'
 
 var accessToken = '';
@@ -273,9 +274,16 @@ export default function MealGenerator(props) {
 
     return (
       <>
-        <button id="generate-meals-button" disabled={(props.macroPercentages[0] + props.macroPercentages[1] + props.macroPercentages[2] !== 100) || props.dailyCalories <= 0} onClick={async () => { setShowMealDetails(false); await generateAllMeals();  }}>Generate Meals</button>
+        <Button size='large' id="generate-meals-button" 
+                            disableCondition={(props.macroPercentages[0] + props.macroPercentages[1] + props.macroPercentages[2] !== 100) || props.dailyCalories <= 0} 
+                            onClick={async () => { setShowMealDetails(false); await generateAllMeals();  } } 
+                            innerText={`Generate Meals`}/>
         {mealPanels.length > 0 && <div id="meal-generator" class="section transparent">
-            {!showMealDetails ? mealPanels : <MealDetails name={currentFood.name} image={currentFood.image} nutrition={currentFood.nutrition} desc={currentFood.desc} ingredients={currentFood.ingredients}/>}
+            {!showMealDetails ? mealPanels : <MealDetails name={currentFood.name} 
+                                                            image={currentFood.image} 
+                                                            nutrition={currentFood.nutrition} 
+                                                            desc={currentFood.desc} 
+                                                            ingredients={currentFood.ingredients}/>}
         </div> }
         <header className="sub-header">
             <h2>Total Meal Macros</h2>

@@ -4,30 +4,6 @@ import { useEffect,
             useState } from 'react'
 
 export default function RadioButtonLargeSquare(props){
-    
-    
-    /*
-    const handleMouseClick = () => {
-        setIsClicked(!isClicked);
-        console.log(isClicked);
-    };*/
-
-    /*
-
-    if (props.defaultClicked === true){
-        return (
-            <div>
-            <label>
-                <input value={props.value} type="radio" name={props.name} id={props.id} onChange={props.onChange} checked/>
-                <div className={`${props.class} box`}>
-                    <span>{props.text}</span>
-                </div>
-                </label>
-            </div>
-        )
-    }
-    */
-
     return (
         <div>
         <label>
@@ -38,9 +14,9 @@ export default function RadioButtonLargeSquare(props){
         </label>
         </div>
     )
-  }
+}
 
-  export function SliderRange(props){
+export function SliderRange(props){
     var value = props.value;
     var [currentLegend, setCurrentLegend] = useState('');
 
@@ -73,13 +49,13 @@ export default function RadioButtonLargeSquare(props){
                 <legend>{props.legend}</legend>
                 <input name={props.name} type="range" min={props.min} max={props.max} onChange={props.onChange} value={value}></input> <br></br>
                 <input name={props.name} type="number" min={props.min} max={props.max} onChange={props.onChange} value={value}></input>
-          </div>
+            </div>
         )
     }
 
-  } 
+} 
 
-  export function LargeOutputResult(props){
+export function LargeOutputResult(props){
     if (props.positiveOnly){
         if (props.value <= 0){
             return (
@@ -94,7 +70,7 @@ export default function RadioButtonLargeSquare(props){
             )
         }
     }
-    
+
     return (
         <div class="large-output">
             <span>
@@ -105,4 +81,12 @@ export default function RadioButtonLargeSquare(props){
             </div>
         </div>
     )
-  }
+}
+
+export function Button(props){
+    return (
+        <button class={`button-${props.size}`}id={props.id} disabled={props.disableCondition} onClick={props.onClick} >
+            {props.innerText}
+        </button>
+    )
+}

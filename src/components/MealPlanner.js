@@ -141,9 +141,18 @@ const MacroCalculator = () => {
         </ol>
       </div>
     </div>
-    <MacroSliders handleProteinChange={handleProteinChange} handleCarbChange={handleCarbChange} handleFatChange={handleFatChange} matches={matches}/>
-    <MacroResults protein={proteinPercentage} carbs={carbsPercentage} fat={fatPercentage} dailyCalories={dailyCalories} isList={false}/>
-    <BMIValues macroPercentages={[proteinPercentage, carbsPercentage, fatPercentage]} physicalInfo={physicalInfo} handleBodyChanges={handleBodyChanges} dailyCalories={dailyCalories}/>
+    <MacroSliders handleProteinChange={handleProteinChange} 
+                  handleCarbChange={handleCarbChange} 
+                  handleFatChange={handleFatChange} matches={matches}/>
+    <MacroResults protein={proteinPercentage} 
+                  carbs={carbsPercentage} 
+                  fat={fatPercentage} 
+                  dailyCalories={dailyCalories} 
+                  isList={false}/>
+    <BMIValues macroPercentages={[proteinPercentage, carbsPercentage, fatPercentage]} 
+                physicalInfo={physicalInfo} 
+                handleBodyChanges={handleBodyChanges} 
+                dailyCalories={dailyCalories}/>
     <MealGenerator macroPercentages={[proteinPercentage, carbsPercentage, fatPercentage]} dailyCalories={dailyCalories}/>
     </>
   )
@@ -173,8 +182,9 @@ const BMIValues = (props) => {
       </div>
     <div class="form-container bottom" >
         <SliderRange name={`age`} legend={`Age`} min={`0`} max={`100`} defaultValue={`25`} onChange={props.handleBodyChanges} value={physicalInfo.age}/>
-        <SliderRange name={`offset`} legend={`How much weight would you like to lose/gain?`} min={`-1`} max={`1`} defaultValue={'0'} onChange={props.handleBodyChanges} value={physicalInfo.offset} stepAmt={.25} legendList={legendList} stepList={[-1, -0.75, -0.5, -0.25, 0, .25, .5, .75, 1]}/>
-        {/*<MacroResults protein={props.macroPercentages[0]} carbs={props.macroPercentages[1]} fat={props.macroPercentages[2]} dailyCalories={props.dailyCalories} isList={true}/>*/}
+        <SliderRange name={`offset`} legend={`How much weight would you like to lose/gain?`} 
+                    min={`-1`} max={`1`} defaultValue={'0'} onChange={props.handleBodyChanges} 
+                    value={physicalInfo.offset} stepAmt={.25} legendList={legendList} stepList={[-1, -0.75, -0.5, -0.25, 0, .25, .5, .75, 1]}/>
     </div>
     <div class="section">
       <LargeOutputResult name={`Calories`} value={props.dailyCalories} positiveOnly={true}/>

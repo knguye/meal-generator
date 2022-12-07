@@ -85,10 +85,13 @@ body > div > div {
     #macro-values > div {
       left: 0;
       width: auto;
+      margin-top: 2.5%;
+      margin-bottom: 2.5%;
     }
 
     #macro-values {
       align-items: center;
+
     }
 
     #macro-values > div > div > div{
@@ -410,6 +413,15 @@ legend {
   font-size: 2em;
   margin-top: 5%;
   margin-bottom: 5%;
+  font-family: var(--paragraph-font);
+  background-color: var(--main-bg-color);
+  color: var(--section-color)
+}
+
+#generate-meals-button:hover {
+  background-color:var(--font-color);
+  transition: 0.25s;
+  cursor: pointer;
 }
 
 #total-details {
@@ -422,7 +434,7 @@ legend {
   #generate-meals-button{
     display:block;
     border: none;
-    border-radius: 10%;
+    border-radius: 5px;
     padding: 1em;
     left: 50%;
     margin: auto;
