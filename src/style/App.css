@@ -21,6 +21,10 @@
 
   --header-font: 'Montserrat', sans-serif; 
   --paragraph-font: 'Lato', sans-serif;
+
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow: -moz-scrollbars-vertical;
 }
 
 body{
