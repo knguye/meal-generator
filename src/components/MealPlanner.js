@@ -134,8 +134,8 @@ const MacroCalculator = () => {
       </header>
       <div id="instructions" className="section">
         <ol>
-          <li>Set your macros (in percentages)</li>
-          <li>Enter your physical info (height, weight, sex)</li>
+          <li>Set your macros (in percentages) to total 100%</li>
+          <li>Enter your physical info (height, weight, sex) and how much weight you want to lose per week.</li>
           <li>Click the Generate Meals button!</li>
           <li>Click each meal for more details.</li>
         </ol>
@@ -177,8 +177,10 @@ const BMIValues = (props) => {
           <RadioButtonLargeSquare class="female" value="female" name="sex" id="sex-female" text="Female" onChange={props.handleBodyChanges}/>
         </div>
         
-        <SliderRange name={`weight`} legend={`Weight (kg)`} min={`0`} max={`300`} defaultValue={`70`} onChange={props.handleBodyChanges} value={physicalInfo.weight}/>
-        <SliderRange name={`height`} legend={`Height (cm)`} min={`0`} max={`220`} defaultValue={`170`} onChange={props.handleBodyChanges} value={physicalInfo.height}/>
+        <SliderRange name={`weight`} legend={`Weight (kg)`} min={`0`} max={`300`} defaultValue={`70`} 
+                    onChange={props.handleBodyChanges} value={physicalInfo.weight} convertedUnits={`lbs`} convertedRatio={2.205}/>
+        <SliderRange name={`height`} legend={`Height (cm)`} min={`0`} max={`220`} defaultValue={`170`} 
+                    onChange={props.handleBodyChanges} value={physicalInfo.height} convertedUnits={`ft-in`} convertedRatio={1/2.54}/>
       </div>
     <div class="form-container bottom" >
         <SliderRange name={`age`} legend={`Age`} min={`0`} max={`100`} defaultValue={`25`} onChange={props.handleBodyChanges} value={physicalInfo.age}/>

@@ -19,12 +19,26 @@ export default function RadioButtonLargeSquare(props){
 export function SliderRange(props){
     var value = props.value;
     var [currentLegend, setCurrentLegend] = useState('');
+    var convertedValue = 0;
+    var [convertedView, setConvertedView] = useState();
 
     useEffect (() => {
         if (props.legendList){
             const legendIndex = parseInt(value/props.stepAmt) - parseInt(props.min/props.stepAmt); 
             setCurrentLegend (props.legendList[legendIndex]);
-            console.log(currentLegend);
+        }
+
+        if (props.convertedUnits){
+            convertedValue = value * props.convertedRatio;
+            if (props.convertedUnits === 'ft-in'){
+                const ft = Math.floor(parseFloat(convertedValue)/12);
+                const inches = parseInt(convertedValue) % 12;
+                setConvertedView(<p>{ft}' {inches}"</p>)
+            }
+            else {
+                setConvertedView(<p>{parseInt(convertedValue)} {props.convertedUnits}</p>);
+            }
+
         }
     }, [value])
 
@@ -38,8 +52,8 @@ export function SliderRange(props){
                 <input name={props.name} type="range" min={props.min} max={props.max} onChange={props.onChange} value={value} step={props.stepAmt} list={props.listName}/>
                 <datalist id="steplist">
                     {stepList}
-                </datalist> <br></br>
-                {currentLegend}
+                </datalist>
+                {currentLegend} 
             </div>
         )
     }
@@ -49,6 +63,7 @@ export function SliderRange(props){
                 <legend>{props.legend}</legend>
                 <input name={props.name} type="range" min={props.min} max={props.max} onChange={props.onChange} value={value}></input> <br></br>
                 <input name={props.name} type="number" min={props.min} max={props.max} onChange={props.onChange} value={value}></input>
+                {convertedView}
             </div>
         )
     }

@@ -254,6 +254,22 @@ input {
   text-align: center;
 }
 
+@media screen and (min-width: 1480px){
+  input {
+    width: 15em;
+    height: 1.25em;
+  }
+
+  @media (min-width: 1680px){
+    input {
+      width: 18em;
+      height: 1.5em;
+    }
+  
+  }
+}
+
+
 select {
   height: 2em;
   font-size: 1.5rem;
@@ -291,10 +307,32 @@ legend {
   align-items: center;
 }
 
+.slide-container p {
+  font-size: 1.25em;
+  margin-top: 0;
+}
+
+@media screen and (max-width: 720px){
+  .slide-container p {
+    font-size: 1.25em;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
 .large-output {
   flex-grow: 1;
   text-align: center;
   position: relative;
+}
+
+@media screen and (min-width: 1480px){
+  .large-text .bordered{
+    border: 2px solid var(--main-bg-color);
+    border-style: inset;
+    padding-top: 1%;
+    border-radius: 5px;
+  }
 }
 
 .large-text {
