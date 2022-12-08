@@ -77,7 +77,7 @@ export default function MealGenerator(props) {
         try {
             return fetch(`/find_recipe/${mealMacros[0]}/${mealMacros[1]}/${mealMacros[2]}/${mealCalories}`, 
             {
-                method: "POST",
+                method: "GET",
                 headers: {
                     'content-type': 'application/x-www-form-urlencoded'
                 }
