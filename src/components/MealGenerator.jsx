@@ -75,9 +75,9 @@ export default function MealGenerator(props) {
 
     async function generateSingleMeal(mealMacros, mealCalories){
         try {
-            return fetch(`/find_recipe/${mealMacros[0]}/${mealMacros[1]}/${mealMacros[2]}/${mealCalories}`, 
+            return fetch(`${process.env.REACT_APP_PROXY_SERVER}/find_recipe/${mealMacros[0]}/${mealMacros[1]}/${mealMacros[2]}/${mealCalories}`, 
             {
-                method: "GET",
+                method: "POST",
                 headers: {
                     'content-type': 'application/x-www-form-urlencoded'
                 }
