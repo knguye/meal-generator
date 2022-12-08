@@ -83,7 +83,7 @@ export default function MealGenerator(props) {
                 }
             }).then((response) => response.json())
                 .then((results) => {   
-                    // Find a suitable meal with our meal macros and calories
+                    console.log("All results: " + results)// Find a suitable meal with our meal macros and calories
                     return findSuitableMeal(results, mealMacros, mealCalories);
                 })
         }
@@ -131,7 +131,7 @@ export default function MealGenerator(props) {
 
         // TODO: Prevent copies?
         const randomMeal = getRandomEntryFromList(possibleMeals);
-
+        console.log(`Chosen meal: ${randomMeal}`);
         return randomMeal;
     }
 
