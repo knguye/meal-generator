@@ -177,13 +177,14 @@ const BMIValues = (props) => {
           <RadioButtonLargeSquare class="female" value="female" name="sex" id="sex-female" text="Female" onChange={props.handleBodyChanges}/>
         </div>
         
-        <SliderRange name={`weight`} legend={`Weight (kg)`} min={`0`} max={`300`} defaultValue={`70`} 
+        <SliderRange name={`weight`} legend={`Weight (kg)`} min={`0`} max={`300`} defaultValue={`70`}  units={`kg`}
                     onChange={props.handleBodyChanges} value={physicalInfo.weight} convertedUnits={`lbs`} convertedRatio={2.205}/>
-        <SliderRange name={`height`} legend={`Height (cm)`} min={`0`} max={`220`} defaultValue={`170`} 
+        <SliderRange name={`height`} legend={`Height (cm)`} min={`0`} max={`220`} defaultValue={`170`} units={`cm`}
                     onChange={props.handleBodyChanges} value={physicalInfo.height} convertedUnits={`ft-in`} convertedRatio={1/2.54}/>
       </div>
     <div class="form-container bottom" >
-        <SliderRange name={`age`} legend={`Age`} min={`0`} max={`100`} defaultValue={`25`} onChange={props.handleBodyChanges} value={physicalInfo.age}/>
+        <SliderRange name={`age`} legend={`Age`} min={`0`} max={`100`} defaultValue={`25`} 
+                      onChange={props.handleBodyChanges} value={physicalInfo.age}/>
         <SliderRange name={`offset`} legend={`How much weight would you like to lose/gain?`} 
                     min={`-1`} max={`1`} defaultValue={'0'} onChange={props.handleBodyChanges} 
                     value={physicalInfo.offset} stepAmt={.25} legendList={legendList} stepList={[-1, -0.75, -0.5, -0.25, 0, .25, .5, .75, 1]}/>
