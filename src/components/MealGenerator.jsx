@@ -17,6 +17,8 @@ import {
     Button
 } from './Utils'
 
+import ReactLoading from 'react-loading';
+
 var accessToken = '';
 
 // TODO: Only enable the meal generate button when macros are filled in to 100%
@@ -33,6 +35,8 @@ export default function MealGenerator(props) {
         fat: 0,
         calories: 0
     });
+
+    const [loading, setLoading] = useState();
 
     useEffect(() => {
         setMealPanels(meals.map((val, i) => (
@@ -140,7 +144,7 @@ export default function MealGenerator(props) {
         console.log(`Daily Calories: ${props.dailyCalories}\nP: ${props.macroPercentages[0]}\nC: ${props.macroPercentages[1]}\nF: ${props.macroPercentages[2]}`)
 
         // TODO: Set value based on user input, allow calories allotted for each meal to be split from user input
-        // TODO: Fix issue where people with higher calories (2400) can't get meals (because last meal is too large)
+        // TODO: Add try-catch for not finding a meal? Let findSuitableMeal() throw a custom exception for no meal
         var mealCount = 5 + Math.ceil(Math.abs(props.dailyCalories-2000)/250);
         var caloriesAdded = 0;
 
@@ -154,6 +158,7 @@ export default function MealGenerator(props) {
                 calories: 0
             }
         )
+        setLoading(true);
 
 
         // TODO: Change from # of meals to number of calories left?
@@ -179,7 +184,9 @@ export default function MealGenerator(props) {
             catch (e){
                 console.log(e);
             }
-
+            finally {
+                setLoading(false);
+            }
         }
 
     }
@@ -284,7 +291,8 @@ export default function MealGenerator(props) {
                                                             nutrition={currentFood.nutrition} 
                                                             desc={currentFood.desc} 
                                                             ingredients={currentFood.ingredients}/>}
-        </div> }
+        </div>}
+        {loading && <div class="section transparent" style={{'display': 'flex', 'justifyContent': 'center'}}><ReactLoading type={'spinningBubbles'}/></div>}
         <header className="sub-header">
             <h2>Total Meal Macros</h2>
         </header>
