@@ -21,7 +21,6 @@ import ReactLoading from 'react-loading';
 
 var accessToken = '';
 
-// TODO: Only enable the meal generate button when macros are filled in to 100%
 export default function MealGenerator(props) {
 
     // TODO: Display all meals in three columns for each time of day

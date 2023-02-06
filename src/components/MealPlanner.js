@@ -13,6 +13,28 @@ import MealGenerator from './MealGenerator'
 import RadioButtonLargeSquare, { LargeOutputResult, SliderRange } from './Utils';
 
 function MealPlanner() {
+  async function wakeUpServerAPI() {
+    try {
+        await fetch(`${process.env.REACT_APP_PROXY_SERVER}/health`,
+        {
+            method: "GET",
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded',
+            }
+        })
+        .then ((response) => response.json())
+        .then ((body) => {
+            console.log("Waking up API");
+        })
+    }
+    catch (e) {
+        console.log(e)
+    }
+}
+  useEffect(() => {
+    wakeUpServerAPI();
+  })
+
   return (
     <>
       <header class='main-header'>
